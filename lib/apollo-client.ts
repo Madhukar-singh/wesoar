@@ -13,7 +13,7 @@ const authLink = setContext((_, { headers }) => {
       ...headers,
       "accept-version": "3.0.25",
       access: "",
-      "auth-mode": "azure",
+      "auth-mode": "",
       authorization: "",
       clientid: "b942a680-f209-4f6d-b328-030623921e9a",
       domain: "demo.wesoar.app",
