@@ -1,23 +1,21 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-// Your GraphQL endpoint
 const httpLink = createHttpLink({
-  uri: "https://rakeezaapi.fa.gov.sa/graphql",
+  uri: process.env.NEXT_PUBLIC_GRAPHQL_URI,
 });
 
-// Set custom headers including authorization
 const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      "accept-version": "3.0.25",
-      access: "",
-      "auth-mode": "",
-      authorization: "",
-      clientid: "b942a680-f209-4f6d-b328-030623921e9a",
-      domain: "demo.wesoar.app",
-      uid: "61ec5a7da292c106d6f6146d",
+      "accept-version": process.env.NEXT_PUBLIC_ACCEPT_VERSION,
+      access: process.env.NEXT_PUBLIC_ACCESS_TOKEN,
+      "auth-mode": process.env.NEXT_PUBLIC_AUTH_MODE,
+      authorization: process.env.NEXT_PUBLIC_AUTHORIZATION_TOKEN,
+      clientid: process.env.NEXT_PUBLIC_CLIENT_ID,
+      domain: process.env.NEXT_PUBLIC_DOMAIN,
+      uid: process.env.NEXT_PUBLIC_UID,
     },
   };
 });
